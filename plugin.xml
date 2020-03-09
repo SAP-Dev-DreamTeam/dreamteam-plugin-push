@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<plugin id="dreamteam-plugin-push" 
+    version="1.0.0" 
+    xmlns="http://apache.org/cordova/ns/plugins/1.0" 
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <name>DreamTeamPushNotifications</name>
+    
+    <description>Extend Custom SAP Fiori Client to use Azure Notification Hubs</description>
+    
+    <author>Nuno Ricardo Morais, Jean-François Hensens</author>
+    
+    <keywords>kapsel,sap-fiori-client,azure-notification-hubs,apns,ecosystem:cordova,cordova-ios</keywords>
+    
+    <license>Apache 2.0</license>
+
+    <info>Set notificationHubPath and connectionString properties in appConfig.js</info>
+
+    <dependency id="@sap/kapsel-plugin-apppreferences" version="4.2.11"/>
+    <dependency id="@sap/kapsel-plugin-logon" version="4.2.11"/>
+    <dependency id="@sap/kapsel-plugin-logger" version="4.2.11"/>
+
+    <platform name="ios">
+        <js-module name="DreamTeamPushNotifications" 
+            src="www/DreamTeamPushNotifications.js">
+            <runs/>
+            <clobbers target="dreamTeam.PushNotifications" />
+        </js-module>
+
+        <config-file target="config.xml" 
+            parent="/*">
+            <feature name="DreamTeamPushNotifications">
+                <param name="ios-package" 
+                    value="DreamTeamPushNotifications" 
+                    onload="true" />
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/AppDelegate+DreamTeamPushNotifications.h" />
+        <source-file src="src/ios/AppDelegate+DreamTeamPushNotifications.m" />
+
+        <header-file src="src/ios/DreamTeamPushNotifications.h" />
+        <source-file src="src/ios/DreamTeamPushNotifications.m" />
+
+        <framework src="src/ios/WindowsAzureMessaging.framework" 
+            custom="true"/>
+    </platform>
+</plugin>

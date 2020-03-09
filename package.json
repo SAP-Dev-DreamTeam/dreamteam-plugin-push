@@ -1,0 +1,20 @@
+{
+  "name": "dreamteam-plugin-push",
+  "version": "1.0.0",
+  "description": "Extend Custom SAP Fiori Client to use Azure Notification Hubs",
+  "cordova": {
+    "id": "dreamteam-plugin-push",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "keywords": [
+    "sap-fiori-client",
+    "azure-notification-hubs",
+    "apns",
+    "ecosystem:cordova",
+    "cordova-ios"
+  ],
+  "author": "Nuno Ricardo Morais, Jean-François Hensens",
+  "license": "Apache 2.0"
+}
